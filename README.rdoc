@@ -42,7 +42,12 @@ Try it out:
     >> jump 0
     => main
 
+    # To list what commands ripl has
+    >> list
+    => ["list", "config", "jumps", "jump"]
+
 == Todo
+* Explain how to extend commands
 * Add exit for a jump
 * Add command completion
 * Fix stacktrace interference caused by jumps
