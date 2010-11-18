@@ -1,5 +1,5 @@
 == Description
-This ripl plugin provides a core group of commands for any ripl shell. It aims to be
+This ripl plugin provides a core group of commands for any ripl shell. It aims to
 match and surpass functionality in {irb's commands}[http://tagaholic.me/2009/05/11/demystifying-irb-commands.html]. 
 
 == Install
