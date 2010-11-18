@@ -1,0 +1,48 @@
+== Description
+This ripl plugin provides a core group of commands for any ripl shell. It aims to be
+match and surpass functionality in {irb's commands}[http://tagaholic.me/2009/05/11/demystifying-irb-commands.html]. 
+
+== Install
+Install the gem with:
+
+    sudo gem install ripl-commands
+
+== Usage
+
+Add to your ~/.riplrc
+
+    require 'ripl/commands'
+
+Try it out:
+
+    $ ripl
+
+    # set any ripl config dynamically
+    >> config :prompt, lambda { "ripl(main):" + Ripl.shell.line.to_s + "> " }
+    => #<Proc:0x0063e2f0@(ripl):1>
+    ripl(main):2>  config :result_prompt, '<> '
+    <> "<> "
+
+    # Jump around in different objects as irb does with subsessions and workspaces
+    >> jump 'dude'
+    => 'dude'
+    >> self
+    => 'dude'
+    # Autocomplet for the new current object
+    >> cap[TAB]
+    capitalize   capitalize!
+    >> capitalize
+    => 'Dude'
+
+    # To see where you've jumped
+    >> jumps
+    => [main, 'dude']
+
+    # Jumping to a number translates to jumping to an existing jump
+    >> jump 0
+    => main
+
+== Todo
+* Add exit for a jump
+* Add command completion
+* Fix stacktrace interference caused by jumps
