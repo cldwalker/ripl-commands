@@ -24,7 +24,7 @@ module Ripl
           Core.jumps << obj
           Ripl.shell.add_commands(obj)
         end
-        Ripl.shell.binding = obj.send(:binding)
+        Ripl.shell.binding = obj.instance_eval{ binding }
         obj
       end
 
