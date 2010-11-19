@@ -46,8 +46,30 @@ Try it out:
     >> list
     => ["list", "config", "jumps", "jump"]
 
+== Extending Commands
+
+Extending commands is done by including a module into Ripl::Commands. Say we wanted to extend jumps
+to look nicer:
+
+    # In ~/.riplrc
+    require 'ripl/commands'
+    module Ripl::Commands::NicerJump
+      def jumps
+        super.each_with_index {|e,i| puts "#{i}: #{e.inspect}" }
+      end
+    end
+    Ripl::Commands.send :include, Ripl::Commands::NicerJump
+
+The above jump session then looks like:
+
+    >> jumps
+    0: main
+    1: "dude"
+
+== Credits
+* janlelis for bug fix
+
 == Todo
-* Explain how to extend commands
 * Add exit for a jump
 * Add command completion
 * Fix stacktrace interference caused by jumps
