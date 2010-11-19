@@ -2,7 +2,7 @@ require 'ripl'
 
 module Ripl
   module Commands
-    VERSION = '0.1.0'
+    VERSION = '0.1.1'
 
     module Core
       def self.jumps
