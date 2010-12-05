@@ -1,3 +1,5 @@
+require 'tempfile'
+
 module Ripl::Commands::History
   def history(*args)
     Ripl::Commands::History.history(*args)
@@ -23,7 +25,6 @@ module Ripl::Commands::History
       else
         ''
       end
-      require 'tempfile'
       file = Tempfile.new('edit_string').path
       File.open(file, 'w') {|f| f.puts(body) }
       system(editor, file)
