@@ -44,7 +44,31 @@ Try it out:
 
     # To list what commands ripl has
     >> list
-    => ["list", "config", "jumps", "jump"]
+    => ["list", "config", "history", "editor", "jumps", "jump"]
+
+This plugin also comes with commands to see history and prototype code easily in an editor:
+
+    # Display last 10 inputs
+    >> history 10
+    10 : class Porque; def no; 'porque'; end; end
+    9 : Porque.no
+    8 : Porque.no
+    7: %w{can you -dig -this sir?}.inject([]) do |arr, e|
+    6: if e[/^-/] .. e[/^[^-]/]
+    5: break(arr) if e[/^[^-]/]
+    4: arr << e
+    3: end
+    2: arr
+    1: end
+    => ...
+
+    # Edit last 7 inputs in an editor (specified by ENV['EDITOR']) and eval the edited text
+    >> editor 7
+    ....
+    => ['dig', '-this']
+
+    # If a previous edit exists, opens it in an editor, otherwise opens a new file
+    >> editor
 
 == Extending Commands
 
