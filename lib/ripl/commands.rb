@@ -1,4 +1,5 @@
 require 'ripl'
+require 'ripl/commands/history'
 
 module Ripl
   module Commands
