@@ -3,7 +3,7 @@ require 'ripl/commands/history'
 
 module Ripl
   module Commands
-    VERSION = '0.2.0'
+    VERSION = '0.2.1'
 
     module Core
       def self.jumps
