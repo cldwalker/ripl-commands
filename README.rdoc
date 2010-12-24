@@ -23,6 +23,10 @@ Try it out:
     ripl(main):2>  config :result_prompt, '<> '
     <> "<> "
 
+    # Autocomplete available config keys
+    >> config :[TAB]
+    :binding  :color_error  :multi_line_prompt  :name  :prompt :result_prompt
+
     # Jump around in different objects as irb does with subsessions and workspaces
     >> jump 'dude'
     => 'dude'
@@ -95,5 +99,4 @@ The above jump session then looks like:
 
 == Todo
 * Add exit for a jump
-* Add command completion
 * Fix stacktrace interference caused by jumps
