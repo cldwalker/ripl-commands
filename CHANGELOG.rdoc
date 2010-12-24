@@ -1,3 +1,6 @@
+== 0.2.1
+* Add autocompletion for config command
+
 == 0.2.0
 * Add history and editor commands
 

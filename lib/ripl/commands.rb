@@ -36,4 +36,4 @@ module Ripl
   end
 end
 
-Ripl::Commands.send :include, Ripl::Commands::Core
+Ripl::Commands.include Ripl::Commands::Core

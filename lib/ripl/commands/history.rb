@@ -41,4 +41,4 @@ module Ripl::Commands::History
   end
 end
 
-Ripl::Commands.send :include, Ripl::Commands::History
+Ripl::Commands.include Ripl::Commands::History
