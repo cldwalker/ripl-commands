@@ -34,7 +34,9 @@ module Ripl::Commands::History
     end
 
     def editor
-      ENV['EDITOR'] || 'vim'
+      raise("EDITOR must be set") unless ENV['EDITOR']
+
+      ENV['EDITOR']
     end
 
     def slice_history(last, start=1)
