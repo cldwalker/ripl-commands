@@ -25,7 +25,7 @@ module Ripl::Commands::History
       else
         ''
       end
-      file = Tempfile.new('edit_string').path
+      file = Tempfile.new('ripl-editor').path
       File.open(file, 'w') {|f| f.puts(body) }
       system(editor, file)
       Ripl.shell.loop_eval(@last_edit = File.read(file))
