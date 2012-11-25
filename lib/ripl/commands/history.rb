@@ -20,19 +20,23 @@ module Ripl::Commands::History
       body = if last.nil? && @last_edit
         @last_edit
       elsif last.is_a?(Fixnum)
-        start = Array(Ripl.shell.history)[-2][/^history/] ? 2 : 1
-        slice_history(last, start).join("\n")
+        start = Array(Ripl.shell.history)[-2].start_with?('history') ? 2 : 1
+        slice_history(last, start).join($/)
       else
         ''
       end
-      file = Tempfile.new('edit_string').path
-      File.open(file, 'w') {|f| f.puts(body) }
+
+      file = Tempfile.new(['ripl-editor', '.rb']).path
+      File.open(file, 'w') { |f| f.puts(body) }
+
       system(editor, file)
       Ripl.shell.loop_eval(@last_edit = File.read(file))
     end
 
     def editor
-      ENV['EDITOR'] ? ENV['EDITOR'][/\w+/] : 'vim'
+      raise("EDITOR must be set") unless ENV['EDITOR']
+
+      ENV['EDITOR']
     end
 
     def slice_history(last, start=1)
