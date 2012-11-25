@@ -34,7 +34,7 @@ module Ripl::Commands::History
     end
 
     def editor
-      ENV['EDITOR'] ? ENV['EDITOR'].split.first : 'vim'
+      ENV['EDITOR'] || 'vim'
     end
 
     def slice_history(last, start=1)
