@@ -20,7 +20,7 @@ module Ripl::Commands::History
       body = if last.nil? && @last_edit
         @last_edit
       elsif last.is_a?(Fixnum)
-        start = Array(Ripl.shell.history)[-2][/^history/] ? 2 : 1
+        start = Array(Ripl.shell.history)[-2].start_with?('history') ? 2 : 1
         slice_history(last, start).join("\n")
       else
         ''
@@ -32,7 +32,7 @@ module Ripl::Commands::History
     end
 
     def editor
-      ENV['EDITOR'] ? ENV['EDITOR'][/\w+/] : 'vim'
+      ENV['EDITOR'] ? ENV['EDITOR'].split.first : 'vim'
     end
 
     def slice_history(last, start=1)
