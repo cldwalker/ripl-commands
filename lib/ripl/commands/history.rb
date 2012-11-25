@@ -21,7 +21,7 @@ module Ripl::Commands::History
         @last_edit
       elsif last.is_a?(Fixnum)
         start = Array(Ripl.shell.history)[-2].start_with?('history') ? 2 : 1
-        slice_history(last, start).join("\n")
+        slice_history(last, start).join($/)
       else
         ''
       end
