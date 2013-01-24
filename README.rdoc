@@ -96,6 +96,7 @@ The above jump session then looks like:
 
 == Credits
 * janlelis for bug fix
+* postmodern for command tweaks
 
 == Todo
 * Add exit for a jump
