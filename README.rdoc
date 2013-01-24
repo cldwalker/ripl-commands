@@ -98,6 +98,9 @@ The above jump session then looks like:
 * janlelis for bug fix
 * postmodern for command tweaks
 
+== Contributing
+{See here}[http://tagaholic.me/contributing.html]
+
 == Todo
 * Add exit for a jump
 * Fix stacktrace interference caused by jumps
